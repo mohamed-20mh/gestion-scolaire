@@ -19,7 +19,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Redirection selon le rôle
+            // Redirection selon le role
             $role = Auth::user()->role;
 
             switch ($role) {

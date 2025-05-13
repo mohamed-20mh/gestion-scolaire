@@ -35,7 +35,7 @@ class AdminController extends Controller
 
     public function absences()
     {
-        // récupérer toutes les absences avec les relations utiles (user, sceance et groupe)
+        // recuperer toutes les absences avec les relations utiles (user, sceance et groupe)
         $absences = Absence::with(['user', 'sceance.groupe'])->get();
 
         return view('admin.absences', compact('absences'));

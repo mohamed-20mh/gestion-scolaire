@@ -57,7 +57,6 @@ class EleveController extends Controller
         ->orderBy('evaluation_id')
         ->get();
 
-        // Regrouper les notes par matière et les stocker dans un tableau
         $notesParMatiere = [];
 
         foreach ($notes as $note) {

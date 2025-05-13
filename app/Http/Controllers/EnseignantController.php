@@ -50,7 +50,7 @@ class EnseignantController extends Controller
     {
         $enseignantId = Auth::id();
 
-        // récupérer les matières et groupes liés à cet enseignant
+        // recuperer les matieres et groupes lies à cet enseignant
         $matiereGroupes = \App\Models\EnseignantGroupeMatiere::with('matiere', 'groupe')
                             ->where('user_id', $enseignantId)
                             ->get();
@@ -154,7 +154,7 @@ class EnseignantController extends Controller
         $evaluation = Evaluation::findOrFail($id);
         $groupe = $evaluation->groupe;
 
-        // récupérer les notes avec les élèves
+        // rcuperer les notes avec les eleves
         $notes = Note::where('evaluation_id', $id)->with('eleve')->get();
 
         return view('enseignant.notes-edit', compact('evaluation', 'groupe', 'notes'));
